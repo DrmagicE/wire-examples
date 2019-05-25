@@ -5,7 +5,7 @@
 - 下发注册成功邮件 
 
 抽象两个接口：
-- `user.UserRepository`表示数据库依赖
+- `service.UserRepository`表示数据库依赖
 - `service.MailSender`表示邮件依赖  
 
 
