@@ -3,9 +3,9 @@ package main
 import (
 	"log"
 
-	"github.com/DrmagicE/wire-examples/db"
-	"github.com/DrmagicE/wire-examples/di"
-	"github.com/DrmagicE/wire-examples/service"
+	"github.com/DrmagicE/wire-examples/example/db"
+	"github.com/DrmagicE/wire-examples/example/di"
+	"github.com/DrmagicE/wire-examples/example/service"
 )
 
 // 手动注入依赖

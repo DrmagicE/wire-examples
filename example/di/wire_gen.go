@@ -6,8 +6,10 @@
 package di
 
 import (
-	"github.com/DrmagicE/wire-examples/db"
-	"github.com/DrmagicE/wire-examples/service"
+	"context"
+	"github.com/DrmagicE/wire-examples/example/db"
+	"github.com/DrmagicE/wire-examples/example/service"
+	"io"
 )
 
 // Injectors from wire.go:
@@ -21,4 +23,16 @@ func NewService(c *db.Config, m *service.MailConfig) (*service.Service, error) {
 	userRepo := service.NewUserRepo(sqlDB)
 	serviceService := service.NewService(mailSender, userRepo)
 	return serviceService, nil
+}
+
+func InitGreeter(ctx context.Context, s []string, w io.Writer) (*service.Greeter, error) {
+	options := &service.Options{
+		Messages: s,
+		Writer:   w,
+	}
+	greeter, err := service.NewGreeter(ctx, options)
+	if err != nil {
+		return nil, err
+	}
+	return greeter, nil
 }
